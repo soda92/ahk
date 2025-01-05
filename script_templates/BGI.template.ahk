@@ -3,11 +3,6 @@
 
 TraySetIcon "{resources}\mouse.ico"
 
-#!K::
-{
-Run '"BGI.exe - Shortcut.lnk"'
-}
-
 #HotIf WinActive("ahk_exe BGI.exe")
 f::
 {

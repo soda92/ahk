@@ -25,6 +25,7 @@ vars = {
     "{WindowsTerminal.ahk}": CURRENT.parent.joinpath(
         "script_templates/WindowsTerminal.template.ahk"
     ),
+    "desktop": home_folder.joinpath("Desktop"),
     "{toggle-icons.exe}": CURRENT.parent.joinpath("resources/toggle-icons.exe"),
 }
 

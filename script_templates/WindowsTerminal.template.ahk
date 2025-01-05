@@ -104,3 +104,9 @@ VKFF & E::
 {
     Send "{PrintScreen}"
 }
+
+
+#!K::
+{
+Run '"{desktop}\BGI.exe - Shortcut.lnk"'
+}
