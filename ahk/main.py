@@ -1,13 +1,23 @@
-from ahk.autostart import create, start_folder
+from ahk.autostart import create, start_folder, home_folder
 from pathlib import Path
 import subprocess
+import argparse
 
 CURRENT = Path(__file__).resolve().parent
 scripts = CURRENT.parent.joinpath("scripts")
 
+
+def resolve_ahk_chm():
+    return home_folder.joinpath(r"scoop\apps\autohotkey\current\v2\AutoHotkey.chm")
+
+
 vars = {
     "resources": CURRENT.parent.joinpath("resources"),
     "cursor": CURRENT.parent.joinpath("ahk_cursor"),
+    "edit.ps1": CURRENT.parent.joinpath("resources/edit.ps1"),
+    "{AutoHotkey.chm}": resolve_ahk_chm(),
+    "{WindowsTerminal.ahk}": CURRENT.parent.joinpath("scripts/WindowsTerminal.ahk"),
+    "{toggle-icons.exe}": CURRENT.parent.joinpath("resources/toggle-icons.exe"),
 }
 
 
@@ -18,18 +28,34 @@ def init():
     for f in files:
         content = f.read_text(encoding="utf8")
         for k, v in vars.items():
-            content = content.replace("{" + k + "}", str(v))
-        scripts.joinpath(f.name).write_text(content, encoding="utf8")
+            if "{" not in k:
+                k = "{" + k + "}"
+            content = content.replace(k, str(v))
+        dest_file = scripts.joinpath(f.stem.removesuffix('.template') + ".ahk")
+        dest_file.write_text(content, encoding="utf8")
+
+
+lnk_file = ""
 
 
 def main():
     files = list(scripts.glob("*.ahk"))
-    lnk_file = ""
     for f in files:
         lnk_file = create(f)
-    subprocess.Popen(f"explorer /select,{str(lnk_file)}")
 
 
 if __name__ == "__main__":
     init()
     main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-e", "--exec", action="store_true", default=False, help="execute now"
+    )
+
+    parser.add_argument(
+        "-o", "--open", action="store_true", default=False, help="open startup folder"
+    )
+
+    args = parser.parse_args()
+    if args.open:
+        subprocess.Popen(f"explorer /select,{str(lnk_file)}")
