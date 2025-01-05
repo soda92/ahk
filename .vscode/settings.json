@@ -1,0 +1,8 @@
+{
+    "python.languageServer": "Jedi",
+    "[python]": {
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.defaultColorDecorators": "auto",
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    }
+}
