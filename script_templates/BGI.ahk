@@ -1,6 +1,6 @@
 #Requires AutoHotKey v2.0
 
-TraySetIcon "mouse.ico"
+TraySetIcon "{resources}/mouse.ico"
 
 #!K::
 {
@@ -21,17 +21,17 @@ Send "{Enter}"
 
 #!J::
 {
-	Run "python.exe stop.py"
+	Run "python.exe {cursor}\stop.py"
 }
 
 Loop {
   if WinExist("ahk_exe BGI.exe")  {
-    if (!FileExist("running")){
-      Run "pythonw.exe move-cursor.py",,"Hide"
+    if (!FileExist("{cursor}\running")){
+      Run "pythonw.exe {cursor}\move-cursor.py",,"Hide"
     }
   } else {
-    if (FileExist("running")){
-		Run "pythonw.exe stop.py"
+    if (FileExist("{cursor}\running")){
+		Run "pythonw.exe {cursor}\stop.py"
     }
   }
   Sleep 1000
