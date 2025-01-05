@@ -88,12 +88,12 @@ VKFF & E::
 ; Hide/Show Desktop icons: Win+Alt+D, Win+Ctrl+D
 #!D::
 {
-    Run "toggle-icons.exe"
+    Run "{toggle-icons.exe}"
 }
 
 #^D::
 {
-    Run "toggle-icons.exe"
+    Run "{toggle-icons.exe}"
 }
 
 ; Ctrl + Shift + S
