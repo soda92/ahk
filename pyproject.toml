@@ -1,0 +1,12 @@
+[project]
+name = "soda-ahk"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pywin32>=308",
+]
+
+[project.scripts]
+soda-ahk = "ahk.main:main"
