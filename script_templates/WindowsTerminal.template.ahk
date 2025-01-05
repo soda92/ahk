@@ -6,6 +6,7 @@ EDITOR := "powershell {edit.ps1}"
 
 #!R::
 {
+    Run "python.exe {regenerate.py}", , "Hide"
     Reload
 }
 
@@ -33,12 +34,12 @@ EDITOR := "powershell {edit.ps1}"
 {
     if !WinExist("ahk_exe hh.exe") {
         Run "{AutoHotkey.chm}"
-		WinWait("ahk_exe hh.exe", , 3)
+        WinWait("ahk_exe hh.exe", , 3)
     }
-	else{
-		WinActivate("ahk_exe hh.exe")
-		WinMaximize("ahk_exe hh.exe")
-	}
+    else {
+        WinActivate("ahk_exe hh.exe")
+        WinMaximize("ahk_exe hh.exe")
+    }
 }
 
 #!P::
@@ -76,10 +77,10 @@ VKFF & E::
 
 #Esc::
 {
-	if !WinExist("ahk_exe procexp64.exe") {
-		Run "procexp64.exe"
+    if !WinExist("ahk_exe procexp64.exe") {
+        Run "procexp64.exe"
     }
-	if WinWait("ahk_exe procexp64.exe", , 3) {
+    if WinWait("ahk_exe procexp64.exe", , 3) {
         WinActivate
         WinMaximize
     }
@@ -99,5 +100,5 @@ VKFF & E::
 ; Ctrl + Shift + S
 #+S::
 {
-Send "{PrintScreen}"
+    Send "{PrintScreen}"
 }

@@ -1,2 +1,2 @@
 Push-Location $PSScriptRoot/../
-code .
+code . -g $args
