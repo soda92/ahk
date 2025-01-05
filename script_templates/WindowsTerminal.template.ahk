@@ -1,7 +1,7 @@
 ﻿#Requires AutoHotkey v2.0
 #SingleInstance Force
 
-TraySetIcon "C:\Users\SodaCris\Documents\tool.ico"
+TraySetIcon "{resources}\tool.ico"
 
 EDITOR := "powershell {edit.ps1}"
 

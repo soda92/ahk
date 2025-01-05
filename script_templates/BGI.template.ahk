@@ -1,7 +1,7 @@
 #Requires AutoHotKey v2.0
 #SingleInstance Force
 
-TraySetIcon "{resources}/mouse.ico"
+TraySetIcon "{resources}\mouse.ico"
 
 #!K::
 {
