@@ -1,4 +1,9 @@
 # ahk
+
+<a href="https://pypi.org/project/soda-ahk/">
+    <img alt="PyPI - Version" src="https://img.shields.io/pypi/v/soda-ahk">
+</a>
+
 my autohotkey scripts
 
 install and run:

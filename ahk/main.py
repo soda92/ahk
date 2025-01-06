@@ -5,7 +5,7 @@ import argparse
 from ahk.regenerate import regenerate as init
 
 CURRENT = Path(__file__).resolve().parent
-scripts = CURRENT.parent.joinpath("scripts")
+scripts = CURRENT.parent.joinpath("ahk_scripts")
 
 lnk_file = []
 
