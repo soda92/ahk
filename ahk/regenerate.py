@@ -12,7 +12,7 @@ start_folder = home_folder.joinpath(
 
 
 CURRENT = Path(__file__).resolve().parent
-scripts = CURRENT.parent.joinpath("scripts")
+scripts = CURRENT.parent.joinpath("ahk_scripts")
 
 logging.basicConfig(
     filename=CURRENT.parent.joinpath("soda-ahk.reg.log"), level=logging.INFO
@@ -69,7 +69,7 @@ vars = {
 
 
 def regenerate():
-    templates = CURRENT.parent.joinpath("script_templates")
+    templates = CURRENT.parent.joinpath("ahk_script_templates")
     scripts.mkdir(exist_ok=True)
     files = list(templates.glob("*.ahk"))
     for f in files:
