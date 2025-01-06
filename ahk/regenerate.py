@@ -1,5 +1,8 @@
 from pathlib import Path
 import sys
+import winreg
+import logging
+
 
 home_folder = Path.home()
 python_path = Path(sys.executable).resolve().parent
@@ -11,8 +14,43 @@ start_folder = home_folder.joinpath(
 CURRENT = Path(__file__).resolve().parent
 scripts = CURRENT.parent.joinpath("scripts")
 
+logging.basicConfig(
+    filename=CURRENT.parent.joinpath("soda-ahk.reg.log"), level=logging.INFO
+)
+
+logger = logging.getLogger(__name__)
+
 
 def resolve_ahk_chm():
+    script_type = ""
+    script_exec = ""
+    try:
+        with winreg.OpenKey(winreg.HKEY_CLASSES_ROOT, ".ahk") as key:
+            script_type = winreg.QueryValue(key, "")
+    except OSError:
+        logger.error(".ahk ext not found in registry")
+    try:
+        # \AutoHotkeyScript\Shell\Open\Command
+        with winreg.OpenKey(winreg.HKEY_CLASSES_ROOT, script_type) as key:
+            script_exec = winreg.QueryValue(key, r"Shell\Open\Command")
+    except OSError:
+        logger.error("query exec failed")
+    logger.info("current exec: %s", script_exec)
+
+    if script_exec != "":
+        ahk_exe = script_exec.split(" ")[0]
+        # need to remove start " and end "
+        ahk_exe = ahk_exe[1:-1]
+        chm = (
+            Path(ahk_exe)
+            .resolve()
+            .parent.parent.joinpath("v2")
+            .joinpath("AutoHotkey.chm")
+        )
+        if chm.exists():
+            return chm
+
+    logger.error("error reading reg, using default path")
     return home_folder.joinpath(r"scoop\apps\autohotkey\current\v2\AutoHotkey.chm")
 
 
