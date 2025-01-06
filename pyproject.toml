@@ -17,8 +17,8 @@ include = ["*"]                           # ["*"] by default
 exclude = ["test*", "scripts", ".vscode"] # empty by default
 
 [tool.setuptools.package-data]
-script_templates = ["*.ahk"]
-resources = ["*.zip", "*.ps1", "*.dll", "*.ico", "*.exe", "*.json", "*.pdb"]
+ahk_script_templates = ["*.ahk"]
+ahk_resources = ["*.zip", "*.ps1", "*.dll", "*.ico", "*.exe", "*.json", "*.pdb"]
 
 [dependency-groups]
 dev = [

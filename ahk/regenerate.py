@@ -55,16 +55,16 @@ def resolve_ahk_chm():
 
 
 vars = {
-    "resources": CURRENT.parent.joinpath("resources"),
+    "resources": CURRENT.parent.joinpath("ahk_resources"),
     "cursor": CURRENT.parent.joinpath("ahk_cursor"),
-    "edit.ps1": CURRENT.parent.joinpath("resources/edit.ps1"),
+    "edit.ps1": CURRENT.parent.joinpath("ahk_resources/edit.ps1"),
     "{AutoHotkey.chm}": resolve_ahk_chm(),
     "{regenerate.py}": CURRENT.joinpath("regenerate.py"),
     "{WindowsTerminal.ahk}": CURRENT.parent.joinpath(
-        "script_templates/WindowsTerminal.template.ahk"
+        "ahk_script_templates/WindowsTerminal.template.ahk"
     ),
     "desktop": home_folder.joinpath("Desktop"),
-    "{toggle-icons.exe}": CURRENT.parent.joinpath("resources/toggle-icons.exe"),
+    "{toggle-icons.exe}": CURRENT.parent.joinpath("ahk_resources/toggle-icons.exe"),
 }
 
 
