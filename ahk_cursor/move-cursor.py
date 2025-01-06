@@ -28,13 +28,19 @@ def set_process_name(name):
 set_process_name("Python - Move Cursor")
 CURRENT.joinpath("running").write_text("a", encoding="utf8")
 
-while True:
-    try:
-        f()
-    except Exception as e:
-        print(e)
 
-    if file.exists():
-        CURRENT.joinpath("running").unlink()
-        file.unlink()
-        break
+def main():
+    while True:
+        try:
+            f()
+        except Exception as e:
+            print(e)
+
+        if file.exists():
+            CURRENT.joinpath("running").unlink()
+            file.unlink()
+            break
+
+
+if __name__ == "__main__":
+    main()
