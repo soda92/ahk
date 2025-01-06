@@ -62,7 +62,7 @@ VKFF & E::
 #S::
 {
     if !WinExist("Settings") {
-        Run "ms-settings:colors"
+        Run "ms-settings:appsfeatures-app"
     }
     WinWait "Settings", , 3
     WinActivate
