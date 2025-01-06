@@ -1,5 +1,7 @@
 # replaced scripts
 /scripts
+# log file
+/*.log
 
 
 

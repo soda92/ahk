@@ -4,7 +4,7 @@ my autohotkey scripts
 install:
 ```
 pip install -U soda-ahk
-soda-ahk install
+soda-ahk.exe
 ```
 
 ## Recommended apps
@@ -31,5 +31,10 @@ I would like to thank these groups too:
  - GitHub
  - pyautogui library
 
+# Resources
+
 Learn more about troubleshooting your Windows here:
 <https://www.youtube.com/watch?v=PYHqrwQIoxc>
+
+Help of different setting options:
+<https://4sysops.com/archives/list-of-ms-settings-uri-commands-to-open-specific-settings-in-windows-10/>
