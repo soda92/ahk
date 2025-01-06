@@ -1,4 +1,3 @@
-import subprocess
 from win32com.client import Dispatch
 from pathlib import Path
 import sys
