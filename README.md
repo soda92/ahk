@@ -1,10 +1,10 @@
 # ahk
 my autohotkey scripts
 
-install:
+install and run:
 ```
 pip install -U soda-ahk
-soda-ahk.exe
+soda-ahk.exe -e
 ```
 
 ## Recommended apps

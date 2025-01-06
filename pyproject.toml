@@ -21,7 +21,10 @@ script_templates = ["*.ahk"]
 resources = ["*.zip", "*.ps1", "*.dll", "*.ico", "*.exe", "*.json", "*.pdb"]
 
 [dependency-groups]
-dev = ["build>=1.2.2.post1"]
+dev = [
+    "build>=1.2.2.post1",
+    "twine>=6.0.1",
+]
 
 [project.scripts]
 soda-ahk-cli = "ahk.main:main"
