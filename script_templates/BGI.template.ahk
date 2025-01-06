@@ -23,11 +23,11 @@ Send "{Enter}"
 Loop {
   if WinExist("ahk_exe BGI.exe")  {
     if (!FileExist("{cursor}\running")){
-      Run "pythonw.exe {cursor}\move-cursor.py",,"Hide"
+      Run "soda-ahk-cursor.exe",,"Hide"
     }
   } else {
     if (FileExist("{cursor}\running")){
-		Run "pythonw.exe {cursor}\stop.py"
+		Run "soda-ahk-cursor.exe --stop"
     }
   }
   Sleep 1000

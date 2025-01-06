@@ -5,10 +5,20 @@ TraySetIcon "{resources}\tool.ico"
 
 EDITOR := "powershell {edit.ps1}"
 
+Media_Prev::
+{
+    Send "!{Left}"
+}
+
+Media_Next::
+{
+    Send "!{Right}"
+}
+
 #!R::
 {
-    Run "python.exe {regenerate.py}", , "Hide"
-    Reload
+    ; Run "python.exe {regenerate.py}", , "Hide"
+    Run "soda-ahk.exe -e"
 }
 
 ; #C::
