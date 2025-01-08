@@ -4,6 +4,8 @@
 # log file
 /*.log
 
+# other
+*.ico~
 
 
 # Byte-compiled / optimized / DLL files

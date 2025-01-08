@@ -3,7 +3,6 @@ from pathlib import Path
 import subprocess
 import argparse
 from ahk.regenerate import regenerate as init
-import shutil
 
 CURRENT = Path(__file__).resolve().parent
 scripts = CURRENT.parent.joinpath("ahk_scripts")
@@ -29,7 +28,9 @@ def exec():
 
 def main():
     if scripts.exists():
-        shutil.rmtree(str(scripts))
+        files = scripts.glob("*.ahk")
+        for file in files:
+            file.unlink()
 
     init()
     create_links()
