@@ -3,7 +3,6 @@ from pathlib import Path
 import subprocess
 import argparse
 from ahk.regenerate import regenerate as init
-import shutil
 
 CURRENT = Path(__file__).resolve().parent
 scripts = CURRENT.parent.joinpath("ahk_scripts")
