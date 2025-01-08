@@ -17,3 +17,13 @@ Media_Play_Pause::
 {
     Send " "
 }
+
+Media_Prev::
+{
+    Send "!{Left}"
+}
+
+Media_Next::
+{
+    Send "!{Right}"
+}

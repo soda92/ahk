@@ -5,21 +5,6 @@ TraySetIcon "{resources}\tool.ico"
 
 EDITOR := "powershell {edit.ps1}"
 
-Media_Prev::
-{
-    Send "!{Left}"
-}
-
-Media_Next::
-{
-    Send "!{Right}"
-}
-
-#!R::
-{
-    Run "soda-ahk.exe -e"
-}
-
 #K::
 {
     Send "!{F4}"
@@ -45,22 +30,6 @@ Media_Next::
         WinActivate("ahk_exe hh.exe")
         WinMaximize("ahk_exe hh.exe")
     }
-}
-
-#!P::
-{
-    Run "ms-settings:colors"
-}
-
-#!E::
-{
-    Run Format("{1} {WindowsTerminal.ahk}", EDITOR), , "Hide"
-}
-
-; Fn: SC163/VKFF ; [TODO] Not effective
-VKFF & E::
-{
-    Run Format("{1} {WindowsTerminal.ahk}", EDITOR), , "Hide"
 }
 
 #S::
