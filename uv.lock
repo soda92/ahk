@@ -486,7 +486,7 @@ wheels = [
 
 [[package]]
 name = "soda-ahk"
-version = "2025.1.8.0"
+version = "2025.1.8.2"
 source = { editable = "." }
 dependencies = [
     { name = "pywin32" },
