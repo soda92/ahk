@@ -4,7 +4,9 @@ version = "2025.1.8.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = ["pyautogui>=0.9.54", "pywin32>=308"]
+dependencies = [
+ "pywin32>=308",
+]
 
 [build-system]
 requires = ["setuptools"]
