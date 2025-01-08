@@ -17,14 +17,8 @@ Media_Next::
 
 #!R::
 {
-    ; Run "python.exe {regenerate.py}", , "Hide"
     Run "soda-ahk.exe -e"
 }
-
-; #C::
-; {
-;     Run Format("{1}", EDITOR), , "Hide"
-; }
 
 #K::
 {
@@ -119,4 +113,16 @@ VKFF & E::
 #!K::
 {
 Run '"{desktop}\BGI.exe - Shortcut.lnk"'
+}
+
+#HotIf WinActive("ahk_exe BGI.exe")
+f::
+{
+Send "{Enter}"
+}
+
+#HotIf WinActive("ahk_exe BGI.exe")
+v::
+{
+Send "{Enter}"
 }
