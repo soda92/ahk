@@ -1,6 +1,6 @@
 [project]
 name = "soda-ahk"
-version = "2025.1.6.2"
+version = "2025.1.8.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -27,9 +27,7 @@ dev = [
 ]
 
 [project.scripts]
-soda-ahk-cli = "ahk.main:main"
-soda-ahk-cursor-cli = "ahk_cursor.main:main"
+ahk-cli = "ahk.main:main"
 
 [project.gui-scripts]
-soda-ahk = "ahk.main:main"
-soda-ahk-cursor = "ahk_cursor.main:main"
+ahk = "ahk.main:main"
