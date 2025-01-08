@@ -29,7 +29,9 @@ def exec():
 
 def main():
     if scripts.exists():
-        shutil.rmtree(str(scripts))
+        files = scripts.glob("*.ahk")
+        for file in files:
+            file.unlink()
 
     init()
     create_links()
