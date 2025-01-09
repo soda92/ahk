@@ -2,28 +2,23 @@ from ahk.autostart import create
 from pathlib import Path
 import subprocess
 import argparse
+import os
 from ahk.regenerate import regenerate as init
 
 CURRENT = Path(__file__).resolve().parent
 scripts = CURRENT.parent.joinpath("ahk_scripts")
 
-lnk_file = []
 
-
-def create_links():
+def create_autoruns():
     files = list(scripts.glob("*.ahk"))
-    global lnk_file
     for f in files:
-        lnk_file.append(create(f))
+        create(f)
 
 
 def exec():
-    global lnk_file
-    for lnk in lnk_file:
-        s = str(lnk)
-        import os
-
-        os.startfile(s)
+    files = list(scripts.glob("*.ahk"))
+    for f in files:
+        os.startfile(f)
 
 
 def main():
@@ -33,7 +28,7 @@ def main():
             file.unlink()
 
     init()
-    create_links()
+    create_autoruns()
 
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -46,7 +41,10 @@ def main():
 
     args = parser.parse_args()
     if args.open:
-        subprocess.Popen(f"explorer /select,{str(lnk_file[-1])}")
+        regjump = CURRENT.parent.joinpath("ahk_resources").joinpath("regjump.exe")
+        subprocess.Popen(
+            rf"{regjump} HKCU:\Software\Microsoft\Windows\CurrentVersion\Run /accepteula"
+        )
 
     if args.exec:
         exec()
