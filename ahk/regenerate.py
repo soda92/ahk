@@ -21,7 +21,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def get_ahk_folder():
+def resolve_ahk_chm():
     script_type = ""
     script_exec = ""
     try:
@@ -41,14 +41,17 @@ def get_ahk_folder():
         ahk_exe = script_exec.split(" ")[0]
         # need to remove start " and end "
         ahk_exe = ahk_exe[1:-1]
-        return Path(ahk_exe).resolve().parent.parent.joinpath("v2")
+        chm = (
+            Path(ahk_exe)
+            .resolve()
+            .parent.parent.joinpath("v2")
+            .joinpath("AutoHotkey.chm")
+        )
+        if chm.exists():
+            return chm
 
     logger.error("error reading reg, using default path")
-    return home_folder.joinpath(r"scoop\apps\autohotkey\current\v2")
-
-
-def resolve_ahk_chm():
-    return get_ahk_folder().joinpath("AutoHotkey.chm")
+    return home_folder.joinpath(r"scoop\apps\autohotkey\current\v2\AutoHotkey.chm")
 
 
 vars = {
