@@ -9,7 +9,18 @@ my autohotkey scripts
 install and run:
 ```
 pip install -U soda-ahk
-soda-ahk.exe -e
+soda-ahk.exe
+```
+
+Other usages:
+
+- Open autostart registry: 
+```
+soda-ahk --open
+```
+- Switch desktop icon show/hide:
+```
+soda-ahk-toggle-icons
 ```
 
 ## Recommended apps
@@ -34,7 +45,6 @@ This project would not be possible without these groups:
 I would like to thank these groups too:
  - VSCode team and it's contributors
  - GitHub
- - pyautogui library
 
 # Resources
 

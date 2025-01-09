@@ -3,11 +3,14 @@
 
 TraySetIcon "{resources}\tool.ico"
 
-EDITOR := "powershell {edit.ps1}"
-
 #K::
 {
     Send "!{F4}"
+}
+
+#O::
+{
+    Run "explorer.exe"
 }
 
 #I::
@@ -51,10 +54,10 @@ EDITOR := "powershell {edit.ps1}"
 
 #Esc::
 {
-    if !WinExist("ahk_exe procexp64.exe") {
-        Run "procexp64.exe"
+    if !WinExist("ahk_exe procexp.exe") {
+        Run "{resources}\procexp.exe"
     }
-    if WinWait("ahk_exe procexp64.exe", , 3) {
+    if WinWait("ahk_exe procexp.exe", , 3) {
         WinActivate
         WinMaximize
     }
@@ -64,12 +67,12 @@ EDITOR := "powershell {edit.ps1}"
 ; See https://github.com/soda92/toggle-icons for source code
 #!D::
 {
-    Run "{toggle-icons.exe}"
+    Run "soda-ahk-toggle-icons.exe",,"Hide"
 }
 
 #^D::
 {
-    Run "{toggle-icons.exe}"
+    Run "soda-ahk-toggle-icons.exe",,"Hide"
 }
 
 ; Ctrl + Shift + S
