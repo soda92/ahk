@@ -1,4 +1,4 @@
-#Requires AutoHotkey v2.0
+﻿#Requires AutoHotkey v2.0
 #SingleInstance Force
 
 TraySetIcon "{resources}\tool.ico"
@@ -6,6 +6,11 @@ TraySetIcon "{resources}\tool.ico"
 #K::
 {
     Send "!{F4}"
+}
+
+#O::
+{
+    Run "explorer.exe"
 }
 
 #I::
