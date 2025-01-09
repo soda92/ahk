@@ -3,8 +3,6 @@
 
 TraySetIcon "{resources}\tool.ico"
 
-EDITOR := "powershell {edit.ps1}"
-
 #K::
 {
     Send "!{F4}"
