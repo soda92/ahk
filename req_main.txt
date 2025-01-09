@@ -1,1 +1,0 @@
-pywin32 # for creating shortcuts

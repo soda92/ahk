@@ -6,6 +6,6 @@
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
     "files.associations": {
-        "req_main.txt": "pip-requirements"
+        // "req_main.txt": "pip-requirements"
     }
 }
