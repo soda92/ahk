@@ -1,4 +1,4 @@
-﻿#Requires AutoHotkey v2.0
+#Requires AutoHotkey v2.0
 #SingleInstance Force
 
 TraySetIcon "{resources}\tool.ico"
@@ -64,12 +64,12 @@ EDITOR := "powershell {edit.ps1}"
 ; See https://github.com/soda92/toggle-icons for source code
 #!D::
 {
-    Run "{toggle-icons.exe}"
+    Run "ahk-toggle-icons.exe",,"Hide"
 }
 
 #^D::
 {
-    Run "{toggle-icons.exe}"
+    Run "ahk-toggle-icons.exe",,"Hide"
 }
 
 ; Ctrl + Shift + S

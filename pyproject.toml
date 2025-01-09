@@ -4,9 +4,7 @@ version = "2025.1.8.2"
 description = "my ahk scripts."
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = [
- "pywin32>=308",
-]
+dependencies = ["pywin32>=308"]
 
 [build-system]
 requires = ["setuptools"]
@@ -20,13 +18,11 @@ exclude = ["test*", "scripts", ".vscode"] # empty by default
 
 [tool.setuptools.package-data]
 ahk_script_templates = ["*.ahk"]
-ahk_resources = ["*.zip", "*.ps1", "*.dll", "*.ico", "*.exe", "*.json", "*.pdb"]
+ahk_resources = ["*.ps1", "*.ico", "*.exe", "*.txt"]
 
 [dependency-groups]
-dev = [
-    "build>=1.2.2.post1",
-    "twine>=6.0.1",
-]
+dev = ["build>=1.2.2.post1", "twine>=6.0.1"]
 
 [project.scripts]
 soda-ahk = "ahk.main:main"
+soda-ahk-toggle-icons = "ahk.toggle_icons:ToggleDesktopIcons"
