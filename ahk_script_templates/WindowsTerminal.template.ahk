@@ -67,12 +67,12 @@ TraySetIcon "{resources}\tool.ico"
 ; See https://github.com/soda92/toggle-icons for source code
 #!D::
 {
-    Run "ahk-toggle-icons.exe",,"Hide"
+    Run "soda-ahk-toggle-icons.exe",,"Hide"
 }
 
 #^D::
 {
-    Run "ahk-toggle-icons.exe",,"Hide"
+    Run "soda-ahk-toggle-icons.exe",,"Hide"
 }
 
 ; Ctrl + Shift + S

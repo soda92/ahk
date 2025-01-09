@@ -1,6 +1,6 @@
 [project]
 name = "soda-ahk"
-version = "2025.1.8.2"
+version = "2025.1.9.0"
 description = "my ahk scripts."
 readme = "README.md"
 requires-python = ">=3.10"
