@@ -46,6 +46,11 @@ TraySetIcon "{resources}\tool.ico"
     Send "{Tab}"
 }
 
+#!P::
+{
+    Run "ms-settings:personalization-colors"
+}
+
 ; Run Terminal: Ctrl+Alt+T
 ^!T::
 {
@@ -67,12 +72,12 @@ TraySetIcon "{resources}\tool.ico"
 ; See https://github.com/soda92/toggle-icons for source code
 #!D::
 {
-    Run "soda-ahk-toggle-icons.exe",,"Hide"
+    Run "{resources}\toggle-icons.exe",,"Hide"
 }
 
 #^D::
 {
-    Run "soda-ahk-toggle-icons.exe",,"Hide"
+    Run "{resources}\toggle-icons.exe",,"Hide"
 }
 
 ; Ctrl + Shift + S
