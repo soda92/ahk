@@ -29,7 +29,9 @@ def main():
 
     init()
     create_autoruns()
+    from ahk.toggle_icons import main as main_c
 
+    main_c()
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "-e", "--exec", action="store_true", default=True, help="execute now"
