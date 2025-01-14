@@ -1,4 +1,4 @@
-#Requires AutoHotkey v2.0
+﻿#Requires AutoHotkey v2.0
 #SingleInstance Force
 
 TraySetIcon "{resources}\tool.ico"
@@ -44,6 +44,11 @@ TraySetIcon "{resources}\tool.ico"
     WinActivate
     Sleep 200
     Send "{Tab}"
+}
+
+#!P::
+{
+    Run "ms-settings:personalization-colors"
 }
 
 ; Run Terminal: Ctrl+Alt+T
