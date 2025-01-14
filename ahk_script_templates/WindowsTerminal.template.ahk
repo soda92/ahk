@@ -1,4 +1,4 @@
-﻿#Requires AutoHotkey v2.0
+#Requires AutoHotkey v2.0
 #SingleInstance Force
 
 TraySetIcon "{resources}\tool.ico"
@@ -67,12 +67,12 @@ TraySetIcon "{resources}\tool.ico"
 ; See https://github.com/soda92/toggle-icons for source code
 #!D::
 {
-    Run "soda-ahk-toggle-icons.exe",,"Hide"
+    Run "{resources}\toggle-icons.exe",,"Hide"
 }
 
 #^D::
 {
-    Run "soda-ahk-toggle-icons.exe",,"Hide"
+    Run "{resources}\toggle-icons.exe",,"Hide"
 }
 
 ; Ctrl + Shift + S
