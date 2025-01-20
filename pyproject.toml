@@ -1,6 +1,6 @@
 [project]
 name = "soda-ahk"
-version = "2025.1.14.0"
+version = "2025.1.20.0"
 description = "my ahk scripts."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -20,6 +20,7 @@ packages = ["ahk", "ahk_resources", "ahk_script_templates"]
 include = ["*.ahk", "*.ps1", "*.ico", "*.exe", "*.txt"]
 
 [tool.hatch.build.targets.wheel]
+packages = ["ahk", "ahk_resources", "ahk_script_templates"]
 include = ["*.ahk", "*.ps1", "*.ico", "*.exe", "*.txt"]
 
 [dependency-groups]

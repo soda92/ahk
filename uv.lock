@@ -485,7 +485,7 @@ wheels = [
 
 [[package]]
 name = "soda-ahk"
-version = "2025.1.14.0"
+version = "2025.1.20.0"
 source = { editable = "." }
 dependencies = [
     { name = "ziglang" },
