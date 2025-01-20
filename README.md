@@ -18,10 +18,6 @@ Other usages:
 ```
 soda-ahk --open
 ```
-- Switch desktop icon show/hide:
-```
-soda-ahk-toggle-icons
-```
 
 ## Recommended apps
 
