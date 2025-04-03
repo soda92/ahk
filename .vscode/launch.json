@@ -8,24 +8,11 @@
             "name": "Start",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/ahk/main.py",
+            "module": "ahk",
             "console": "integratedTerminal",
             "env": {
                 "PYTHONPATH": "${workspaceFolder}"
             }
         },
-        {
-            "name": "StartAndExec",
-            "type": "debugpy",
-            "request": "launch",
-            "program": "${workspaceFolder}/ahk/main.py",
-            "console": "integratedTerminal",
-            "env": {
-                "PYTHONPATH": "${workspaceFolder}"
-            },
-            "args": [
-                "-e"
-            ]
-        }
     ]
 }
