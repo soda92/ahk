@@ -1,7 +1,7 @@
 [project]
 name = "soda-ahk"
-version = "2025.4.3.0"
-description = "my ahk scripts."
+version = "2025.4.3.1"
+description = "soda's ahk scripts"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = []
@@ -17,13 +17,23 @@ build-backend = "hatchling.build"
 ignore-vcs = true
 packages = ["ahk", "ahk_resources", "ahk_script_templates"]
 include = ["*.ahk", "*.ps1", "*.ico", "*.txt", "procexp.exe", "regjump.exe"]
-exclude = ["__pycache__", "*.pyc", "*.exe", "*.exe~", "*.syso", "*.pdb", "*.ico~", "compile*.json", ".cache", "build"]
+exclude = [
+    "__pycache__",
+    "*.pyc",
+    "compile*.json",
+    ".cache",
+    "build",
+    "*.syso",
+    "*.exe~",
+    "*.ico~",
+    "toggle-icons.exe",
+    "*.pdb",
+]
 
 [tool.hatch.build.targets.wheel]
 ignore-vcs = true
 packages = ["ahk", "ahk_resources", "ahk_script_templates"]
-include = ["*.ahk", "*.ps1", "*.ico", "*.exe", "*.txt"]
-exclude = ["__pycache__", "*.pyc", "*.exe~", "*.syso", "compile*.json", ".cache", "build"]
+# exclude is not needed because wheel is build from sdist in uv
 
 [tool.hatch.build.hooks.custom]
 
