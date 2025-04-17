@@ -65,6 +65,9 @@ CapsLock & V:: Send "^v"
 ^!T::
 {
     Run "wt.exe"
+    if WinWait("ahk_exe WindowsTerminal.exe", , 3) {
+        WinActivate
+    }
 }
 
 #Esc::
