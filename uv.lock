@@ -1,4 +1,5 @@
 version = 1
+revision = 1
 requires-python = ">=3.10"
 resolution-markers = [
     "python_full_version == '3.11.*'",
@@ -194,7 +195,7 @@ name = "em-keyboard"
 version = "4.5.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "pyperclip", marker = "platform_system == 'Windows'" },
+    { name = "pyperclip", marker = "sys_platform == 'win32'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/27/4e/a8a94fda2ff9266b66c4294ee6ab7682ee2186e04aeee4703af26e58554e/em_keyboard-4.5.0.tar.gz", hash = "sha256:b6cbe50b3dc07f1c6d2a68e8d3bd34a4f6a3e21dfd5df939f59410db0510200c", size = 111033 }
 wheels = [
@@ -485,7 +486,7 @@ wheels = [
 
 [[package]]
 name = "soda-ahk"
-version = "2025.4.3.0"
+version = "2025.4.18.0"
 source = { editable = "." }
 
 [package.dev-dependencies]
