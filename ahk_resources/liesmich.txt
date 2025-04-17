@@ -1,3 +1,0 @@
-Ab: 4.24
-Die DesktopOK.ini wird im Ordner %APPDATA%/DesktopOK erstellt
-Für den portablen Einsatz, erstellen Sie bitte im DesktopOK Arbeitsverzeichnis die DesktopOK.ini
