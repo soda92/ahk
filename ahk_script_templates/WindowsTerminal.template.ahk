@@ -8,6 +8,16 @@ TraySetIcon "{resources}\tool.ico"
     Send "!{F4}"
 }
 
+CapsLock:: {
+    static CapsLockState := false
+    CapsLockState := !CapsLockState
+    SetCapsLockState(CapsLockState)
+}
+
+CapsLock & Alt:: Send "^!t"
+CapsLock & C:: Send "^c"
+CapsLock & V:: Send "^v"
+
 #O::
 {
     Run "explorer.exe"
