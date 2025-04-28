@@ -15,7 +15,7 @@ ahk_resources/toggle-icons.pdb
 
 # other
 *.ico~
-
+*.kra~
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
