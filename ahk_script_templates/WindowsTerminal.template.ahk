@@ -116,3 +116,36 @@ v::
 {
 Send "{Enter}"
 }
+
+#HotIf WinActive("ahk_exe REALLIVE.exe")
+v::
+{
+Send "{Enter}"
+}
+
+#HotIf WinActive("ahk_exe soramizu.exe")
+v::
+{
+Send "{Enter}"
+}
+
+#HotIf WinActive("ahk_exe soramizu.exe")
+b::
+{
+Send "{Enter}"
+}
+#HotIf WinActive("ahk_exe soramizu.exe")
+n::
+{
+Send "{Enter}"
+}
+#HotIf WinActive("ahk_exe soramizu.exe")
+c::
+{
+Send "{Enter}"
+}
+#HotIf WinActive("ahk_exe soramizu.exe")
+m::
+{
+Send "{Enter}"
+}
