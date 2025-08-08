@@ -3,7 +3,15 @@ from string import Template
 import sys
 import winreg
 import logging
-from ahk._pyinstaller import resource_path
+
+# 从新的 paths 模块导入路径和辅助函数
+from ahk.paths import (
+    get_resource_path,
+    LOG_FILE_PATH,
+    PERMANENT_SCRIPTS_DIR,
+    PERMANENT_RESOURCES_DIR,
+)
+import shutil
 
 
 home_folder = Path.home()
@@ -14,16 +22,15 @@ start_folder = home_folder.joinpath(
 
 
 CURRENT = Path(__file__).resolve().parent
-scripts = CURRENT.parent.joinpath("ahk_scripts")
 
-logging.basicConfig(
-    filename=CURRENT.parent.joinpath("soda-ahk.reg.log"), level=logging.INFO
-)
+# 确保日志目录存在
+LOG_FILE_PATH.parent.mkdir(parents=True, exist_ok=True)
+logging.basicConfig(filename=LOG_FILE_PATH, level=logging.INFO)
 
 logger = logging.getLogger(__name__)
 
 # 模板文件仍然从打包的资源中读取
-templates_dir = resource_path("ahk_script_templates")
+templates_dir = get_resource_path("ahk_script_templates")
 
 
 def resolve_ahk_chm():
@@ -94,9 +101,18 @@ def regenerate(output_dir: Path, resources_dir: Path):
 
 
 if __name__ == "__main__":
-    # 当此脚本直接运行时，需要提供一个有效的输出目录和资源目录
-    project_root = Path(__file__).parent.parent
-    default_output = project_root / "generated_scripts"
-    default_resources = project_root / "ahk_resources" # 用于测试
-    default_output.mkdir(exist_ok=True)
-    regenerate(default_output, default_resources)
+    # 当此脚本直接运行时，使用永久目录进行测试
+    # 这确保了测试行为与实际运行行为一致
+    PERMANENT_SCRIPTS_DIR.mkdir(parents=True, exist_ok=True)
+    PERMANENT_RESOURCES_DIR.mkdir(parents=True, exist_ok=True)
+
+    # 注意：为了让这个测试正常工作，ahk_resources 必须存在于项目根目录
+    # 我们可以手动同步一下用于测试
+    test_source_resources = Path(__file__).parent.parent / "ahk_resources"
+    if test_source_resources.exists():
+        shutil.copytree(
+            test_source_resources, PERMANENT_RESOURCES_DIR, dirs_exist_ok=True
+        )
+
+    regenerate(PERMANENT_SCRIPTS_DIR, PERMANENT_RESOURCES_DIR)
+    print(f"测试脚本已生成到: {PERMANENT_SCRIPTS_DIR}")

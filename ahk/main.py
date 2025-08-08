@@ -3,18 +3,18 @@ from pathlib import Path
 import subprocess
 import argparse
 import os
-import shutil  # 导入 shutil 模块
+import shutil
 from ahk.regenerate import regenerate as init
-from ahk._pyinstaller import resource_path
-
-# 定义永久目录
-APP_DATA_DIR = Path(os.getenv('LOCALAPPDATA')) / 'soda-ahk'
-PERMANENT_SCRIPTS_DIR = APP_DATA_DIR / 'scripts'
-PERMANENT_RESOURCES_DIR = APP_DATA_DIR / 'resources' # 为资源文件定义永久目录
+# 从新的 paths 模块导入路径和辅助函数
+from ahk.paths import (
+    PERMANENT_SCRIPTS_DIR,
+    PERMANENT_RESOURCES_DIR,
+    get_resource_path,
+)
 
 def sync_resources():
     """将资源文件同步到永久存储位置。"""
-    source_resources = resource_path('ahk_resources')
+    source_resources = get_resource_path('ahk_resources')
     PERMANENT_RESOURCES_DIR.mkdir(parents=True, exist_ok=True)
 
     # 使用 shutil.copytree 来递归复制，dirs_exist_ok=True 确保目录已存在时不会报错

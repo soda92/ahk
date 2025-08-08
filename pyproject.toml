@@ -42,9 +42,6 @@ packages = ["ahk", "ahk_resources", "ahk_script_templates"]
 # left empty intentionally
 # it will run the hook hatch_build.py
 
-[project.entry-points."pyinstaller40"]
-hook-dirs = "ahk._pyinstaller:get_hook_dirs"
-
 [dependency-groups]
 dev = [
     "build>=1.2.2.post1",
