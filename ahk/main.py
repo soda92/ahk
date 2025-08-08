@@ -1,5 +1,4 @@
 from ahk.autostart import create
-from pathlib import Path
 import subprocess
 import argparse
 import os

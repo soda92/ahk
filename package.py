@@ -41,7 +41,6 @@ def main():
         "pyinstaller",
         "--name", APP_NAME,
         "--onefile",      # 打包成单个 .exe 文件
-        "--windowed",     # 运行时不显示控制台窗口
         "--clean",        # 在构建前清理 PyInstaller 缓存
         ENTRY_POINT,
     ]
