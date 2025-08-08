@@ -4,7 +4,10 @@ version = "2025.4.26.0"
 description = "soda's ahk scripts"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+    "hatchling>=1.27.0",
+    "pyinstaller>=6.15.0",
+]
 
 [project.urls]
 Repository = "https://github.com/soda92/ahk"
@@ -36,6 +39,11 @@ packages = ["ahk", "ahk_resources", "ahk_script_templates"]
 # exclude is not needed because wheel is build from sdist in uv
 
 [tool.hatch.build.hooks.custom]
+# left empty intentionally
+# it will run the hook hatch_build.py
+
+[project.entry-points."pyinstaller40"]
+hook-dirs = "ahk._pyinstaller:get_hook_dirs"
 
 [dependency-groups]
 dev = [
