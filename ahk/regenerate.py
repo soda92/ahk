@@ -6,7 +6,6 @@ import logging
 # 从新的 paths 模块导入路径和辅助函数
 from ahk.paths import (
     get_resource_path,
-    LOG_FILE_PATH,
     PERMANENT_SCRIPTS_DIR,
     PERMANENT_RESOURCES_DIR,
 )
@@ -22,12 +21,6 @@ start_folder = home_folder.joinpath(
 
 CURRENT = Path(__file__).resolve().parent
 
-# 确保日志目录存在
-LOG_FILE_PATH.parent.mkdir(parents=True, exist_ok=True)
-logging.basicConfig(filename=LOG_FILE_PATH, level=logging.INFO)
-
-logger = logging.getLogger(__name__)
-
 # 模板文件仍然从打包的资源中读取
 templates_dir = get_resource_path("ahk_script_templates")
 
@@ -39,14 +32,14 @@ def resolve_ahk_chm():
         with winreg.OpenKey(winreg.HKEY_CLASSES_ROOT, ".ahk") as key:
             script_type = winreg.QueryValue(key, "")
     except OSError:
-        logger.error(".ahk ext not found in registry")
+        logging.error(".ahk ext not found in registry")
     try:
         # \AutoHotkeyScript\Shell\Open\Command
         with winreg.OpenKey(winreg.HKEY_CLASSES_ROOT, script_type) as key:
             script_exec = winreg.QueryValue(key, r"Shell\Open\Command")
     except OSError:
-        logger.error("query exec failed")
-    logger.info("current exec: %s", script_exec)
+        logging.error("query exec failed")
+    logging.info("current exec: %s", script_exec)
 
     if script_exec != "":
         ahk_exe = script_exec.split(" ")[0]
@@ -61,7 +54,7 @@ def resolve_ahk_chm():
         if chm.exists():
             return chm
 
-    logger.error("无法通过注册表找到帮助文件，将使用默认路径。")
+    logging.error("无法通过注册表找到帮助文件，将使用默认路径。")
     return home_folder.joinpath(r"scoop\apps\autohotkey\current\v2\AutoHotkey.chm")
 
 
@@ -86,16 +79,12 @@ def regenerate(output_dir: Path, resources_dir: Path):
     for t in templates_dir.glob("*.ahk"):
         try:
             template_content = t.read_text(encoding="utf-8")
-            # 使用 f-string 风格的替换
-            result = template_content.format(
-                resources=vars["resources"],
-                cursor=vars["cursor"],
-                AutoHotkey_chm=vars["AutoHotkey_chm"],
-                desktop=vars["desktop"],
-            )
+            for k, v in vars.items():
+                v = str(v).replace('\\', '/')
+                template_content = template_content.replace('{' + k + '}', v)
             # 将生成的文件写入永久目录
             output_file = output_dir.joinpath(t.name)
-            output_file.write_text(result, encoding="utf-8")
+            output_file.write_text(template_content, encoding="utf-8")
             logging.info(f"已生成: {output_file}")
         except Exception as e:
             logging.error(f"处理 {t.name} 时出错: {e}")

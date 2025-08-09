@@ -52,6 +52,8 @@ def open_reg():
     )
 
 def main():
+    from .logs import setup_logging
+    setup_logging()
     """程序主入口点。"""
     # 设置命令行参数解析
     parser = argparse.ArgumentParser(description="管理和运行 AutoHotkey 脚本。")
