@@ -1,5 +1,4 @@
 from pathlib import Path
-from string import Template
 import sys
 import winreg
 import logging
@@ -75,7 +74,7 @@ def regenerate(output_dir: Path, resources_dir: Path):
     vars = {
         "resources": resources_dir,
         "cursor": resources_dir / "ahk.cur",
-        "{AutoHotkey.chm}": resolve_ahk_chm(),
+        "AutoHotkey_chm": resolve_ahk_chm(),
         "desktop": home_folder.joinpath("Desktop"),
     }
 
@@ -87,11 +86,13 @@ def regenerate(output_dir: Path, resources_dir: Path):
     for t in templates_dir.glob("*.ahk"):
         try:
             template_content = t.read_text(encoding="utf-8")
-            template = Template(template_content)
-            # 使用 vars 字典替换模板中的占位符
-            # 将 Path 对象转换为字符串以便模板替换
-            str_vars = {k: str(v) for k, v in vars.items()}
-            result = template.safe_substitute(str_vars)
+            # 使用 f-string 风格的替换
+            result = template_content.format(
+                resources=vars["resources"],
+                cursor=vars["cursor"],
+                AutoHotkey_chm=vars["AutoHotkey_chm"],
+                desktop=vars["desktop"],
+            )
             # 将生成的文件写入永久目录
             output_file = output_dir.joinpath(t.name)
             output_file.write_text(result, encoding="utf-8")
