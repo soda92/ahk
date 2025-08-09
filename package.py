@@ -1,5 +1,4 @@
 import subprocess
-import zipfile
 from pathlib import Path
 import shutil
 import os
@@ -51,16 +50,6 @@ def main():
 
     run_command(pyinstaller_command)
 
-    # 步骤 2: 创建最终的 ZIP 压缩包用于分发
-    print("\n--- 正在创建 ZIP 归档文件 ---")
-    zip_path = DIST_DIR / f"{APP_NAME}.zip"
-    executable_path = DIST_DIR / f"{APP_NAME}.exe"
-
-    with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zf:
-        print(f"正在将 {executable_path.name} 添加到 ZIP 文件中...")
-        zf.write(executable_path, arcname=executable_path.name)
-
-    print(f"\n✅ 操作成功! 分发包已创建于: {zip_path.resolve()}")
 
 if __name__ == "__main__":
     main()
